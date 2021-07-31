@@ -1,10 +1,18 @@
 from django.shortcuts import render
 from django.urls import reverse_lazy
 from django.views.generic import ListView, DetailView, CreateView, UpdateView, DeleteView
-from .models import Post
 from django.contrib.auth.mixins import LoginRequiredMixin
-from .forms import PostForm
+from rest_framework import viewsets
 
+from .models import Post
+from .forms import PostForm
+from .serializers import PostSerializer
+
+# REST Views
+
+class PostViewSet(viewsets.ModelViewSet):
+	queryset = Post.objects.all()
+	serializer_class = PostSerializer
 
 # Class views
 
@@ -47,10 +55,3 @@ class DeletePostView(LoginRequiredMixin, DeleteView):
     model = Post
     login_url = reverse_lazy('blog:login')
     success_url = reverse_lazy('blog:posts')
-
-#Function Views
-# def base(request):
-#     return render(request,'base/base.html',{})
-
-# def home(request):
-#     return render(request,'home.html', {})

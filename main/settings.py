@@ -43,6 +43,7 @@ INSTALLED_APPS = [
     'crispy_forms',
     'markdownx',
     'django.forms',
+	'rest_framework',
 ]
 
 CRISPY_TEMPLATE_PACK = 'bootstrap4'
@@ -133,3 +134,5 @@ STATIC_URL = '/static/'
 STATICFILES_DIRS = [
     os.path.join(BASE_DIR,"static"),
 ]
+
+DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
