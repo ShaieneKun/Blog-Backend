@@ -12,11 +12,11 @@ router.register(r'api', ArticleViewSet)
 
 urlpatterns = [ 
     path('', ArticlesView.as_view(), name = "articles"),
-    # path('article/<int:pk>', ArticleView.as_view(), name='articleDetail'),
-    # path('article/<int:pk>/update', UpdateArticleView.as_view(), name='articleUpdate'),
-    # path('article/<int:pk>/delete', DeleteArticleView.as_view(), name='articleDelete'),
+    path('article/<int:pk>', ArticleView.as_view(), name='articleDetail'),
+    path('article/<int:pk>/update', UpdateArticleView.as_view(), name='articleUpdate'),
+    path('article/<int:pk>/delete', DeleteArticleView.as_view(), name='articleDelete'),
     path('article-form', NewArticleView.as_view(), name='articleForm'),
-    # path('accounts/login/', LoginView.as_view(template_name='auth/login.html'), name='login'),
+    path('accounts/login/', LoginView.as_view(template_name='auth/login.html'), name='login'),
 	path('', include(router.urls)),
-    path('api-auth', include('rest_framework.urls')),
+    # path('api-auth', include('rest_framework.urls')),
 ]
