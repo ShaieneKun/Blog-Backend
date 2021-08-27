@@ -13,4 +13,4 @@ class ArticleSerializer(serializers.HyperlinkedModelSerializer):
 
 	class Meta:
 		model = Article
-		fields = ("id", "title", "author", "body")
+		fields = "__all__"  # ("id", "title", "author", "body")
