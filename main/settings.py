@@ -43,6 +43,7 @@ INSTALLED_APPS = [
 	'markdownx',
 	'django.forms',
 	'rest_framework',
+	'django_extensions',
 ]
 
 CRISPY_TEMPLATE_PACK = 'bootstrap4'
