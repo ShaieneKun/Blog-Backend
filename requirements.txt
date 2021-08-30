@@ -3,3 +3,4 @@ django-crispy-forms
 django-markdownx
 djangorestframework
 django-extensions
+uwsgi
