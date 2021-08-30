@@ -1,10 +1,10 @@
 from django import forms
-from .models import Post
+from .models import Article
 from markdownx.fields import MarkdownxFormField
 
-class PostForm(forms.ModelForm):
+class ArticleForm(forms.ModelForm):
     class Meta:
-        model = Post
+        model = Article
         fields = ("title", "body",)
         
         widgets = {
