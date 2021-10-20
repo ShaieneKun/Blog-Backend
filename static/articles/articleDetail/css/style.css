@@ -7,3 +7,7 @@ a button{
     color:rgb(134, 172, 119);
     border: rgb(134, 172, 119) 3px;
 }
+
+img{
+    max-width: 50rem;
+}
