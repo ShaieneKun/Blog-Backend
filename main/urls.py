@@ -15,13 +15,21 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path, include
-from django.conf.urls import url, include
-from markdownx import urls as markdownx
+
+from markdownx import urls as markdownx_urls
+from rest_framework import routers
+
+from blog import views
+
+# REST framework's paths
+rest_router = routers.DefaultRouter()
+rest_router.register("articles", views.ArticleSerializedView, "articles")
 
 urlpatterns = [
-    path("admin/", admin.site.urls),
-    path("blog/", include("blog.urls", namespace="blog")),
     path("", include("index.urls", namespace="index")),
-    url(r"^markdownx/", include(markdownx)),
+    path("admin/", admin.site.urls),
+    path("api/", include(rest_router.urls)),
+    path("blog/", include("blog.urls", namespace="blog")),
+    path("markdownx/", include(markdownx_urls)),
     path("users/", include("users.urls", namespace="users")),
 ]

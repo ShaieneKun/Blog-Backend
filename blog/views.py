@@ -17,6 +17,12 @@ from .serializers import ArticleSerializer
 # REST Views
 
 
+class ArticleSerializedView(viewsets.ModelViewSet):
+    serializer_class = ArticleSerializer
+    queryset = Article.objects.all()
+
+
+## Other views
 class ArticleViewSet(viewsets.ModelViewSet):
     queryset = Article.objects.all()
     serializer_class = ArticleSerializer
