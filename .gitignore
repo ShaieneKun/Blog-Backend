@@ -1,8 +1,8 @@
-**__pycache__/
-launch.json
-venv
-.env
-.vscode
 db.sqlite3
-**migrations
+.env
 .ipynb*/
+launch.json
+**migrations
+**__pycache__/
+venv
+.vscode
