@@ -10,8 +10,8 @@ class Article(models.Model):
     body = MarkdownxField()
 
     # This defines how the instance will be called if printed
-    def __str__(self):
-        return self.title + " | by " + str(self.author)
+    def __str__(self) -> str:
+        return f"{self.title} • by {self.author}"
 
     def get_absolute_url(self):
         return reverse('blog:articleDetail', kwargs={'pk': str(self.id)})
