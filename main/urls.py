@@ -18,6 +18,7 @@ from django.urls import path, include
 
 from markdownx import urls as markdownx_urls
 from rest_framework import routers
+import debug_toolbar
 
 from blog import views
 
@@ -32,4 +33,5 @@ urlpatterns = [
     path("blog/", include("blog.urls", namespace="blog")),
     path("markdownx/", include(markdownx_urls)),
     path("users/", include("users.urls", namespace="users")),
+    path("__debug__/", include(debug_toolbar.urls)),
 ]
