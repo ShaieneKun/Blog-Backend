@@ -1,8 +1,16 @@
 from django.contrib import admin
-from .models import Article
+
+from blog.forms import TagForm
+from blog.models import Article, Tag
 
 # Register your models here.
-admin.site.register(Article)
+@admin.register(Article)
+class ArticleAdmin(admin.ModelAdmin):
+    filter_horizontal = ("tags",)
+
+@admin.register(Tag)
+class TagAdmin(admin.ModelAdmin):
+    form = TagForm
 
 # Changing site's displayed name
 

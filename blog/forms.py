@@ -1,11 +1,13 @@
 from django import forms
-from .models import Article
+from django.forms import widgets
+from .models import Article, Tag
 from markdownx.fields import MarkdownxFormField
 
 
 class ArticleForm(forms.ModelForm):
     class Meta:
         model = Article
+
         fields = (
             "title",
             "body",
@@ -19,3 +21,12 @@ class ArticleForm(forms.ModelForm):
         labels = {
             "title": ("Title"),
         }
+
+
+class TagForm(forms.ModelForm):
+    class Meta:
+        model = Tag
+
+        fields = "__all__"
+
+        widgets = {"colour": forms.TextInput(attrs={"type": "color"})}

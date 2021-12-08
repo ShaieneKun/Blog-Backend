@@ -8,10 +8,16 @@ class Article(models.Model):
     title = models.CharField(max_length=255)
     author = models.ForeignKey(User, on_delete=models.CASCADE)
     body = MarkdownxField()
+    tags = models.ManyToManyField("Tag")
 
     # This defines how the instance will be called if printed
     def __str__(self) -> str:
         return f"{self.title} • by {self.author}"
 
-    def get_absolute_url(self):
-        return reverse("blog:articleDetail", kwargs={"pk": str(self.id)})
+
+class Tag(models.Model):
+    name = models.CharField(max_length=50, unique=True, default=None)
+    colour = models.CharField(max_length=7, default="#888888")
+
+    def __str__(self) -> str:
+        return f"{self.name} • {self.colour}"
