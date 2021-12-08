@@ -1,3 +1,4 @@
+black
 django
 django-cors-headers
 django-crispy-forms
