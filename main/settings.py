@@ -146,4 +146,4 @@ INTERNAL_IPS = ["127.0.0.1"]
 
 # Frontend Stuff
 
-CORS_ORIGIN_WHITELIST = ("http://localhost:3000")
+CORS_ORIGIN_WHITELIST = ("http://localhost:3000",)
