@@ -32,21 +32,21 @@ class ArticleViewSet(viewsets.ModelViewSet):
 
 # See docs for ListView
 # Lists all Articles
-class ArticlesView(ListView):
+class ArticleListView(ListView):
     model = Article
     template_name = "articles/home.html"
 
 
 # See docs for DetailView
 # Show the article in full detail
-class ArticleView(DetailView):
+class ArticleDetailView(DetailView):
     model = Article
     template_name = "articles/articleDetail.html"
 
 
 # See docs for LoginRequiredMixin, UpdateView and reverse_lazy
 # Allows user to change the content of the article
-class UpdateArticleView(LoginRequiredMixin, UpdateView):
+class ArticleUpdateView(LoginRequiredMixin, UpdateView):
     model = Article
     template_name = "articles/articleForm.html"
     # form_class = ArticleForm
@@ -57,7 +57,7 @@ class UpdateArticleView(LoginRequiredMixin, UpdateView):
 
 # See docs for LoginRequiredMixin and CreateView
 # Allows user to create a new Article
-class NewArticleView(LoginRequiredMixin, CreateView):
+class ArticleCreateView(LoginRequiredMixin, CreateView):
     model = Article
     template_name = "articles/articleForm.html"
     form_class = ArticleForm
@@ -69,7 +69,7 @@ class NewArticleView(LoginRequiredMixin, CreateView):
         return super().form_valid(form)
 
 
-class DeleteArticleView(LoginRequiredMixin, DeleteView):
+class ArticleDeleteView(LoginRequiredMixin, DeleteView):
     model = Article
     login_url = reverse_lazy("blog:login")
     success_url = reverse_lazy("blog:articles")
