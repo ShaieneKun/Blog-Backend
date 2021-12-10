@@ -1,9 +1,20 @@
 black
 django
+django-cms
+django-filer
+# CMS Plugins
+djangocms-text-ckeditor
+djangocms-link
+djangocms-file
+djangocms-picture
+djangocms-video
+djangocms-googlemap
+djangocms-snippet
+djangocms-style
 django-cors-headers
 django-crispy-forms
 django-debug-toolbar
 django-extensions
 django-markdownx
-djangorestframework 
+djangorestframework
 uwsgi

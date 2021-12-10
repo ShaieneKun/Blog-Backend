@@ -18,20 +18,26 @@ from django.urls import path, include
 
 from markdownx import urls as markdownx_urls
 from rest_framework import routers
-import debug_toolbar
-
 from blog import views
+
+import debug_toolbar
+from main import settings
 
 # REST framework's paths
 rest_router = routers.DefaultRouter()
 rest_router.register("articles", views.ArticleSerializedView, "articles")
 
 urlpatterns = [
-    path("", include("index.urls", namespace="index")),
+    path("index/", include("index.urls", namespace="index")),
     path("admin/", admin.site.urls),
     path("api/", include(rest_router.urls)),
     path("blog/", include("blog.urls", namespace="blog")),
     path("markdownx/", include(markdownx_urls)),
     path("users/", include("users.urls", namespace="users")),
     path("__debug__/", include(debug_toolbar.urls)),
+    path("", include('cms.urls')),
 ]
+
+if settings.DEBUG:
+    from django.conf.urls.static import static
+    urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
