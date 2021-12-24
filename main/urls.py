@@ -16,7 +16,7 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path, include
 
-from markdownx import urls as markdownx_urls
+# from django_markdownx import urls as markdownx_urls
 from rest_framework import routers
 import debug_toolbar
 
@@ -31,7 +31,7 @@ urlpatterns = [
     path("admin/", admin.site.urls),
     path("api/", include(rest_router.urls)),
     path("blog/", include("blog.urls", namespace="blog")),
-    path("markdownx/", include(markdownx_urls)),
+    # path("markdownx/", include(markdownx_urls)),
     path("users/", include("users.urls", namespace="users")),
     path("__debug__/", include(debug_toolbar.urls)),
 ]
