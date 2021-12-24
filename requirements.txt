@@ -4,6 +4,8 @@ django-cors-headers
 django-crispy-forms
 django-debug-toolbar
 django-extensions
+django-heroku
 django-markdownx
-djangorestframework 
+djangorestframework
+gunicorn
 uwsgi
