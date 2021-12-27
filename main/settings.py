@@ -40,16 +40,15 @@ INSTALLED_APPS = [
     "blog.apps.BlogConfig",
     "index.apps.IndexConfig",
     "users.apps.UsersConfig",
-    "crispy_forms",
     "markdownx",
     "django.forms",
     "rest_framework",
     "corsheaders",
     "django_extensions",
-    "debug_toolbar",
+    "debug_toolbar"
+    'sass_processor'
+	'django_select2',
 ]
-
-CRISPY_TEMPLATE_PACK = "bootstrap4"
 
 MIDDLEWARE = [
     "debug_toolbar.middleware.DebugToolbarMiddleware",
@@ -154,3 +153,14 @@ CORS_ORIGIN_WHITELIST = ["http://localhost:3000"]
 # Heroku Stuff
 
 django_heroku.settings(locals())
+
+# SASS Stuff
+MEDIA_URL = '/media/'
+MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
+STATICFILES_FINDERS = (
+    'django.contrib.staticfiles.finders.FileSystemFinder',
+    'django.contrib.staticfiles.finders.AppDirectoriesFinder',
+    'sass_processor.finders.CssFinder',
+)
+
+SASS_PROCESSOR_ROOT = os.path.join(BASE_DIR,'static')
