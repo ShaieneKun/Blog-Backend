@@ -4,7 +4,6 @@ django
 django-appconf
 django-compressor
 django-cors-headers
-django-crispy-forms
 django-debug-toolbar
 django-extensions
 django-heroku

@@ -3,14 +3,13 @@ from django.contrib.auth.models import User
 from django.urls import reverse
 from markdownx.models import MarkdownxField
 
-# Create your models here.
+
 class Article(models.Model):
     title = models.CharField(max_length=255)
     author = models.ForeignKey(User, on_delete=models.CASCADE)
     body = MarkdownxField()
     tags = models.ManyToManyField("Tag")
 
-    # This defines how the instance will be called if printed
     def __str__(self) -> str:
         return f"{self.title} • by {self.author}"
 

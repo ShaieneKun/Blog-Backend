@@ -17,8 +17,8 @@ To create a virtual enviroment in python, install pip:
 
 ### Debian based distros (Debian, Ubuntu, Mint, Elementary, Pop)
 
-Install pip (Python's package manager).  
-On Mint's app manager, search for python3-pip and install it.  
+Install pip (Python's package manager).
+On Mint's app manager, search for python3-pip and install it.
 In other distros, or Mint's rerminal, use:
 
 ```bash
@@ -34,7 +34,7 @@ python3 -m pip install virtualenv
 With these, create a virtual enviroment with any name in any folder you want, Ex:
 
 ```bash
-mkdir ./virtualEnviroments 
+mkdir ./virtualEnviroments
 cd ./virtualEnviroments
 python3 -m virtualenv blog # You can change "blog", if you want :D
 ```
