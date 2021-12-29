@@ -31,7 +31,7 @@ urlpatterns = [
     path("index/", include("index.urls", namespace="index")),
     path("admin/", admin.site.urls),
     path("api/", include(rest_router.urls)),
-    path("blog/", include("blog.urls", namespace="blog")),
+    path("old-blog/", include("blog.urls", namespace="blog")),
     # path("markdownx/", include(markdownx_urls)),
     path("users/", include("users.urls", namespace="users")),
     path("__debug__/", include(debug_toolbar.urls)),

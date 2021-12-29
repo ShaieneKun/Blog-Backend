@@ -152,7 +152,7 @@ LANGUAGE_CODE = "en"
 
 LANGUAGES = [
     ("en", "English"),
-    ("pt", "Portuguese"),
+    # ("pt", "Portuguese"),
 ]
 
 TIME_ZONE = "UTC"
