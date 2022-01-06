@@ -45,7 +45,9 @@ INSTALLED_APPS = [
     "rest_framework",
     "corsheaders",
     "django_extensions",
-    "debug_toolbar" "sass_processor" "django_select2",
+    "debug_toolbar",
+    "sass_processor",
+    # "django_select2",
 ]
 
 MIDDLEWARE = [

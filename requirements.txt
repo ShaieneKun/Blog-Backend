@@ -25,3 +25,4 @@ sqlparse
 typing-extensions
 uwsgi
 zipp
+pre-commit
