@@ -7,7 +7,7 @@ from markdownx.models import MarkdownxField
 class Article(models.Model):
     title = models.CharField(max_length=255)
     author = models.ForeignKey(User, on_delete=models.CASCADE)
-    body = MarkdownxField()
+    body = models.TextField()
     tags = models.ManyToManyField("Tag")
 
     def __str__(self) -> str:
