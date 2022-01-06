@@ -20,7 +20,7 @@
                     <a href="{% url 'blog:articles' %}">
                         <button type="button" class="btn btn-outline-dark"> Return </button>
                     </a>
-                    <a href="{% url 'blog:articleUpdate' article.pk %}">
+                    <a href="{% url 'admin:blog_article_change' article.id %}">
                         <button type="button" class="btn btn-outline-dark"> Edit </button>
                     </a>
                     <a href="{% url 'blog:articleDelete' article.pk %}">
