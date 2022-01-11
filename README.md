@@ -4,8 +4,8 @@ Creating a blog with Libano
 
 To start, create a Virtual Enviroment. The following things must be set up:
 
-- Python:3.8
-- Django:3.2
+- Python: 3.10
+- Django: 4
 
 # Linux
 
@@ -66,11 +66,10 @@ python3 manage.py runserver
 
 Now, on a web browser, you should be able to open the site on localhost's port 8000: *localhost:8000*
 
-# Troubleshooting
-If an error sayind that a user does not have a profile,migrate and run the command:
+## Submodules
+
+Fetch submodules running the command:
+
 ```bash
-# Applying migration
-python manage.py migrate
-# Creating profile for users
-python manage.py createProfiles
+git submodule update --init --recursive
 ```
