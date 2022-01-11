@@ -6,9 +6,6 @@
 {% comment %} Inserting this page's stylesheet {% endcomment %}
 {% load static %}
 
-{% comment %} Loading Filters {% endcomment %}
-{% load filters %}
-
 <link rel="stylesheet" href=" {% static 'articles/home/css/style.css' %} ">
 <h1 class="title">Articles</h1>
 
@@ -46,7 +43,7 @@
                     by {{article.author}}
                 </h6>
                 <p class="card-text">
-                    {{ article.body|formatted_markdown|safe }}
+                    {{ article.body|safe }}
                 </p>
             </div>
         </div>

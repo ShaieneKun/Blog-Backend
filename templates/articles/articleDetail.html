@@ -4,8 +4,6 @@
         <!--Inserting this page's stylesheet-->
         {% load static %}
         <link rel="stylesheet" href=" {% static 'articles/articleDetail/css/style.css' %} ">
-        <!-- Loading Filters-->
-        {% load filters %}
         <title>{{article.title}} • MyBlog</title>
         <div class="container-fluid">
             <div class="row">
@@ -15,7 +13,7 @@
                     </h1>
                     <hr>
                     <p>
-                        {{ article.body|formatted_markdown|safe }}
+                        {{ article.body|safe }}
                     </p>
                     <a href="{% url 'blog:articles' %}">
                         <button type="button" class="btn btn-outline-dark"> Return </button>
