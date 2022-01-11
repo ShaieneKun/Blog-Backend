@@ -10,8 +10,7 @@ For the full list of settings and their values, see
 https://docs.djangoproject.com/en/3.0/ref/settings/
 """
 
-import os
-import django_heroku
+import os, django_heroku
 
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
@@ -40,14 +39,13 @@ INSTALLED_APPS = [
     "blog.apps.BlogConfig",
     "index.apps.IndexConfig",
     "users.apps.UsersConfig",
-    "markdownx",
     "django.forms",
     "rest_framework",
     "corsheaders",
     "django_extensions",
     "debug_toolbar",
     "sass_processor",
-    # "django_select2",
+    "ckeditor",
 ]
 
 MIDDLEWARE = [
@@ -146,17 +144,16 @@ DEFAULT_AUTO_FIELD = "django.db.models.BigAutoField"
 
 INTERNAL_IPS = ["127.0.0.1"]
 
-# Frontend Stuff
-
 CORS_ORIGIN_WHITELIST = ["http://localhost:3000"]
 
 # Heroku Stuff
-
 django_heroku.settings(locals())
 
-# SASS Stuff
+
 MEDIA_URL = "/media/"
+
 MEDIA_ROOT = os.path.join(BASE_DIR, "media")
+
 STATICFILES_FINDERS = (
     "django.contrib.staticfiles.finders.FileSystemFinder",
     "django.contrib.staticfiles.finders.AppDirectoriesFinder",
@@ -164,3 +161,9 @@ STATICFILES_FINDERS = (
 )
 
 SASS_PROCESSOR_ROOT = os.path.join(BASE_DIR, "static")
+
+CKEDITOR_UPLOAD_PATH = "uploads/"
+
+CKEDITOR_IMAGE_BACKEND = "pillow"
+
+CKEDITOR_BROWSE_SHOW_DIRS = True

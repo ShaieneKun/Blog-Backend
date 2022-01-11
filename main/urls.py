@@ -1,9 +1,9 @@
 from django.contrib import admin
 from django.urls import path, include
+
 # from markdownx import urls as markdownx_urls
 from rest_framework import routers
 import debug_toolbar
-
 from blog import views
 
 # REST framework's paths
@@ -15,7 +15,7 @@ urlpatterns = [
     path("admin/", admin.site.urls),
     path("api/", include(rest_router.urls)),
     path("blog/", include("blog.urls", namespace="blog")),
-    # path(r"^markdownx/", include(markdownx_urls)),
     path("users/", include("users.urls", namespace="users")),
+    path(r"^ckeditor/", include("ckeditor_uploader.urls")),
     path("__debug__/", include(debug_toolbar.urls)),
 ]
