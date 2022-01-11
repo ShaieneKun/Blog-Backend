@@ -1,10 +1,10 @@
 asgiref
 black
-ckeditor
 django
 django-appconf
 django-compressor
 django-cors-headers
+django-ckeditor
 django-debug-toolbar
 django-extensions
 django-heroku
