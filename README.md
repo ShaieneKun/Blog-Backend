@@ -73,3 +73,16 @@ Fetch submodules running the command:
 ```bash
 git submodule update --init --recursive
 ```
+
+## Troubleshooting
+
+### Missing dependencies
+
+
+- "Error: pg_config executable not found."
+
+pg_config is in postgresql-devel (libpq-dev in Debian/Ubuntu, libpq-devel on Centos/Fedora/Cygwin/Babun.)
+
+- Error when installing uwsgi:
+
+Install python development package (python-dev/devel)
