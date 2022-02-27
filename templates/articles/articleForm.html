@@ -1,6 +1,6 @@
 {% extends 'base/base.html' %}
 {% block title %}Add Article | Minael's Blog{% endblock %}
-{% load crispy_forms_tags %}
+{% comment %}{% load crispy_forms_tags %} {% endcomment %}
 
 
 {% block content %}
@@ -25,7 +25,7 @@
                         </div>
                         <div class="row">
                             <div class="col">
-                            {{form.body|as_crispy_field}}
+                            {% comment %}{{form.body|as_crispy_field}}{% endcomment %}
                             </div>
                         </div>
                         <div class="row">

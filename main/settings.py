@@ -41,11 +41,11 @@ INSTALLED_APPS = [
     "blog.apps.BlogConfig",
     "index.apps.IndexConfig",
     "users.apps.UsersConfig",
-    "crispy_forms",
+    #"crispy_forms",
     "markdownx",
     # CMS
     "django.contrib.sites",
-    "cms",
+    "cms"|,
     "menus",
     "treebeard",
     "filer",
@@ -62,7 +62,7 @@ INSTALLED_APPS = [
     "djangocms_snippet",
     "djangocms_style",
     # Rest Framework
-    "django.forms",
+    #"django.forms",
     "rest_framework",
     "corsheaders",
     "django_extensions",
