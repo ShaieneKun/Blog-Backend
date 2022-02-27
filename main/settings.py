@@ -45,7 +45,7 @@ INSTALLED_APPS = [
     "markdownx",
     # CMS
     "django.contrib.sites",
-    "cms"|,
+    "cms",
     "menus",
     "treebeard",
     "filer",
