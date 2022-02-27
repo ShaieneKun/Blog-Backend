@@ -1,8 +1,9 @@
+asgiref
 black
 django
+# CMS Plugins
 django-cms
 django-filer
-# CMS Plugins
 djangocms-text-ckeditor
 djangocms-link
 djangocms-file
@@ -12,11 +13,26 @@ djangocms-googlemap
 djangocms-snippet
 djangocms-style
 django-cors-headers
-django-crispy-forms
+django-ckeditor
 django-debug-toolbar
 django-extensions
 django-heroku
 django-markdownx
+django-redis
 djangorestframework
+django-sass-processor
 gunicorn
+importlib-metadata
+libsass
+Markdown
+Pillow
+pytz
+rcssmin
+redis
+rjsmin
+six
+sqlparse
+typing-extensions
 uwsgi
+zipp
+pre-commit

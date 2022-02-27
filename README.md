@@ -4,8 +4,8 @@ Creating a blog with Libano
 
 To start, create a Virtual Enviroment. The following things must be set up:
 
-- Python:3.8
-- Django:3.2
+- Python: 3.10
+- Django: 4
 
 # Linux
 
@@ -17,8 +17,8 @@ To create a virtual enviroment in python, install pip:
 
 ### Debian based distros (Debian, Ubuntu, Mint, Elementary, Pop)
 
-Install pip (Python's package manager).  
-On Mint's app manager, search for python3-pip and install it.  
+Install pip (Python's package manager).
+On Mint's app manager, search for python3-pip and install it.
 In other distros, or Mint's rerminal, use:
 
 ```bash
@@ -34,7 +34,7 @@ python3 -m pip install virtualenv
 With these, create a virtual enviroment with any name in any folder you want, Ex:
 
 ```bash
-mkdir ./virtualEnviroments 
+mkdir ./virtualEnviroments
 cd ./virtualEnviroments
 python3 -m virtualenv blog # You can change "blog", if you want :D
 ```
@@ -66,11 +66,10 @@ python3 manage.py runserver
 
 Now, on a web browser, you should be able to open the site on localhost's port 8000: *localhost:8000*
 
-# Troubleshooting
-If an error sayind that a user does not have a profile,migrate and run the command:
+## Submodules
+
+Fetch submodules running the command:
+
 ```bash
-# Applying migration
-python manage.py migrate
-# Creating profile for users
-python manage.py createProfiles
+git submodule update --init --recursive
 ```

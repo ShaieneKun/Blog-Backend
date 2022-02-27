@@ -1,7 +1,6 @@
 from django import forms
 from django.forms import widgets
 from .models import Article, Tag
-from markdownx.fields import MarkdownxFormField
 
 
 class ArticleForm(forms.ModelForm):
@@ -15,7 +14,6 @@ class ArticleForm(forms.ModelForm):
 
         widgets = {
             "title": forms.TextInput(attrs={"class": "form-control"}),
-            "body": MarkdownxFormField(),
         }
 
         labels = {

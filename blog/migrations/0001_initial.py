@@ -15,7 +15,7 @@ class Migration(migrations.Migration):
 
     operations = [
         migrations.CreateModel(
-            name="Profile",
+            name="Tag",
             fields=[
                 (
                     "id",
@@ -26,22 +26,32 @@ class Migration(migrations.Migration):
                         verbose_name="ID",
                     ),
                 ),
+                ("name", models.CharField(default=None, max_length=50, unique=True)),
+                ("colour", models.CharField(default="#888888", max_length=7)),
+            ],
+        ),
+        migrations.CreateModel(
+            name="Article",
+            fields=[
                 (
-                    "bio",
-                    models.TextField(
-                        blank=True,
-                        help_text="Please use 100 or less characters",
-                        max_length=100,
-                        null=True,
+                    "id",
+                    models.BigAutoField(
+                        auto_created=True,
+                        primary_key=True,
+                        serialize=False,
+                        verbose_name="ID",
                     ),
                 ),
+                ("title", models.CharField(max_length=255)),
+                ("body", models.TextField()),
                 (
-                    "user",
-                    models.OneToOneField(
+                    "author",
+                    models.ForeignKey(
                         on_delete=django.db.models.deletion.CASCADE,
                         to=settings.AUTH_USER_MODEL,
                     ),
                 ),
+                ("tags", models.ManyToManyField(to="blog.Tag")),
             ],
         ),
     ]

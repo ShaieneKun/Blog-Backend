@@ -8,9 +8,11 @@ from blog.models import Article, Tag
 class ArticleAdmin(admin.ModelAdmin):
     filter_horizontal = ("tags",)
 
+
 @admin.register(Tag)
 class TagAdmin(admin.ModelAdmin):
     form = TagForm
+
 
 # Changing site's displayed name
 

@@ -11,7 +11,7 @@ class UserSerializer(serializers.ModelSerializer):
 
 
 class ArticleSerializer(serializers.ModelSerializer):
-    #author = UserSerializer()
+    # author = UserSerializer()
 
     class Meta:
         model = Article
