@@ -1,6 +1,6 @@
 {% extends 'base/base.html'%}
 {% block title %}Login | Minael's Blog{% endblock %}
-{% load crispy_forms_tags %}
+{% load crispy_forms_tags %}{% endcomment %}
 
 {% block content %}
 <div class="row">
@@ -12,13 +12,13 @@
                     {% csrf_token %}
                         <div class="row">
                             <div class="col-md-6">
-                            {{ form.username|as_crispy_field }}
+                            {% comment %}{{ form.username|as_crispy_field }}{% endcomment %}
                             </div>
                             <div class="col-md-6">
-                            {{ form.password|as_crispy_field }}
+                            {% comment %}{{ form.password|as_crispy_field }}{% endcomment %}
                             </div>
                             <div class='col d-flex flex-row-reverse'>
-                                <button class="btn  btn-info btn-lg login-btn">Login</button>
+                                <buttocrispn class="btn  btn-info btn-lg login-btn">Login</button>
                             <div>
                         </div>
                     </form>

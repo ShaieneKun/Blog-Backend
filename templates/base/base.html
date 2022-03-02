@@ -31,8 +31,13 @@
                     <li class="nav-item ">
                         <a class="nav-link" href="{% url 'index:index'%}">Home</a>
                     </li>
-                    <li class="nav-item ">
+                    {% comment "" %}
+                     <li class="nav-item ">
                         <a class="nav-link" href="{% url 'blog:articles'%}">Articles</a>
+                    </li>
+                    {% endcomment %}
+                    <li class="nav-item ">
+                        <a class="nav-link" href="/blog">Articles</a>
                     </li>
 					{% if user.is_authenticated %}
 					<li class="nav-item justify-content-end">
