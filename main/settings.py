@@ -30,38 +30,15 @@ ALLOWED_HOSTS = ["*"]
 # Application definition
 
 INSTALLED_APPS = [
-    "djangocms_admin_style",
     "django.contrib.admin",
     "django.contrib.auth",
     "django.contrib.contenttypes",
     "django.contrib.sessions",
     "django.contrib.messages",
     "django.contrib.staticfiles",
-    "django.forms",
     "blog.apps.BlogConfig",
     "index.apps.IndexConfig",
     "users.apps.UsersConfig",
-    #"crispy_forms",
-    "markdownx",
-    # CMS
-    "django.contrib.sites",
-    "cms",
-    "menus",
-    "treebeard",
-    "filer",
-    "easy_thumbnails",
-    "mptt",
-    "sekizai",
-    # CMS Plugins
-    "djangocms_text_ckeditor",
-    "djangocms_link",
-    "djangocms_file",
-    "djangocms_picture",
-    "djangocms_video",
-    "djangocms_googlemap",
-    "djangocms_snippet",
-    "djangocms_style",
-    # Rest Framework
     #"django.forms",
     "rest_framework",
     "corsheaders",
@@ -72,10 +49,8 @@ INSTALLED_APPS = [
 ]
 
 MIDDLEWARE = [
-    "cms.middleware.utils.ApphookReloadMiddleware",
     "debug_toolbar.middleware.DebugToolbarMiddleware",
     "corsheaders.middleware.CorsMiddleware",
-    "django.middleware.locale.LocaleMiddleware",
     "django.middleware.security.SecurityMiddleware",
     "django.contrib.sessions.middleware.SessionMiddleware",
     "django.middleware.common.CommonMiddleware",
@@ -83,10 +58,6 @@ MIDDLEWARE = [
     "django.contrib.auth.middleware.AuthenticationMiddleware",
     "django.contrib.messages.middleware.MessageMiddleware",
     "django.middleware.clickjacking.XFrameOptionsMiddleware",
-    "cms.middleware.user.CurrentUserMiddleware",
-    "cms.middleware.page.CurrentPageMiddleware",
-    "cms.middleware.toolbar.ToolbarMiddleware",
-    "cms.middleware.language.LanguageCookieMiddleware",
 ]
 
 ROOT_URLCONF = "main.urls"
@@ -104,8 +75,6 @@ TEMPLATES = [
                 "django.contrib.messages.context_processors.messages",
                 "django.template.context_processors.media",
                 "django.template.context_processors.static",
-                "sekizai.context_processors.sekizai",
-                "cms.context_processors.cms_settings",
             ],
         },
     },
@@ -148,12 +117,7 @@ AUTH_PASSWORD_VALIDATORS = [
 # Internationalization
 # https://docs.djangoproject.com/en/3.0/topics/i18n/
 
-LANGUAGE_CODE = "en"
-
-LANGUAGES = [
-    ("en", "English"),
-    # ("pt", "Portuguese"),
-]
+LANGUAGE_CODE = "en-us"
 
 TIME_ZONE = "UTC"
 
@@ -180,31 +144,6 @@ DEFAULT_AUTO_FIELD = "django.db.models.BigAutoField"
 
 INTERNAL_IPS = ["127.0.0.1"]
 
-# Frontend Stuff
-
-CORS_ORIGIN_WHITELIST = ("http://localhost:3000",)
-
-# CMS
-
-SITE_ID = 1
-
-X_FRAME_OPTIONS = "SAMEORIGIN"
-
-CMS_TEMPLATES = [
-    ("base/base.html", "Home page template"),
-]
-
-MEDIA_URL = "/media/"
-MEDIA_ROOT = os.path.join(BASE_DIR, "media")
-
-THUMBNAIL_HIGH_RESOLUTION = True
-
-THUMBNAIL_PROCESSORS = (
-    "easy_thumbnails.processors.colorspace",
-    "easy_thumbnails.processors.autocrop",
-    "filer.thumbnail_processors.scale_and_crop_with_subject_location",
-    "easy_thumbnails.processors.filters",
-)
 CORS_ORIGIN_WHITELIST = ["http://localhost:3000"]
 
 # Heroku Stuff

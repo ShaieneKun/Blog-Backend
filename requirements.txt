@@ -1,17 +1,8 @@
 asgiref
 black
 django
-# CMS Plugins
-django-cms
-django-filer
-djangocms-text-ckeditor
-djangocms-link
-djangocms-file
-djangocms-picture
-djangocms-video
-djangocms-googlemap
-djangocms-snippet
-djangocms-style
+django-appconf
+django-compressor
 django-cors-headers
 django-ckeditor
 django-debug-toolbar
