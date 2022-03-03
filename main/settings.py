@@ -39,7 +39,7 @@ INSTALLED_APPS = [
     "blog.apps.BlogConfig",
     "index.apps.IndexConfig",
     "users.apps.UsersConfig",
-    #"django.forms",
+    "django.forms",
     "rest_framework",
     "corsheaders",
     "django_extensions",
@@ -88,7 +88,7 @@ WSGI_APPLICATION = "main.wsgi.application"
 DATABASES = {
     "default": {
         "ENGINE": "django.db.backends.sqlite3",
-        "NAME": f"{BASE_DIR}/db.sqlite3"
+        "NAME": os.path.join(BASE_DIR, "db.sqlite3"),
     }
 }
 
