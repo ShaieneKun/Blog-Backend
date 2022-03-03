@@ -32,6 +32,7 @@ nav img{
 /* Classes */
 .title{
     color: white;
+    text-align: center;
 }
 .article-body{
     color:white;
