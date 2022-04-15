@@ -1,3 +1,16 @@
+/* All */
+
+@font-face {
+    font-family: "JetBrainsMono";
+    src: url("/static/base/fonts/JetBrainsMono-VariableFont_wght.ttf");
+}
+
+* {
+    font-family: JetBrainsMono;
+    font-weight:normal !important;
+    font-style:normal !important;
+}
+
 /* Tags */
 html{
     position: relative;
@@ -52,4 +65,5 @@ nav img{
 p{
     color: white;
 }
+
 /* Classes with tags */
