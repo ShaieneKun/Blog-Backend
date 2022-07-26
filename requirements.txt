@@ -1,3 +1,4 @@
+wheel
 asgiref
 black
 django
@@ -17,7 +18,7 @@ importlib-metadata
 libsass
 Markdown
 Pillow
-pytz
+# pytzextensions
 rcssmin
 redis
 rjsmin

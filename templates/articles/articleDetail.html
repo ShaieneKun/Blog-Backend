@@ -20,7 +20,14 @@
                             </p>
                         </div>
                     </div>
-                    <hr>
+                    <div class="row mb-5">
+                        <div class="col-md-6">
+                            Created on {{article.create_date}} UTC
+                        </div>
+                        <div class="col-md-6">
+                            Updated on {{article.last_update_date}} UTC
+                        </div>
+                    </div>
                     <p>
                         {{ article.body|safe }}
                     </p>
@@ -29,9 +36,6 @@
                     </a>
                     <a href="{% url 'admin:blog_article_change' article.id %}">
                         <button type="button" class="btn btn-outline-dark"> Edit </button>
-                    </a>
-                    <a href="{% url 'blog:articleDelete' article.pk %}">
-                        <button type="button" class="btn btn-outline-dark"> Remove </button>
                     </a>
                 </div>
             </div>
