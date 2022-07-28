@@ -127,32 +127,14 @@ USE_L10N = True
 
 USE_TZ = True
 
-
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/3.0/howto/static-files/
 
 STATIC_URL = "/static/"
-#STATIC_ROOT = os.path.join(BASE_DIR, "staticfiles")
 
 STATICFILES_DIRS = [
     os.path.join(BASE_DIR, "static"),
 ]
-
-DEFAULT_AUTO_FIELD = "django.db.models.BigAutoField"
-
-# Debug Toolbar
-
-INTERNAL_IPS = ["127.0.0.1"]
-
-CORS_ORIGIN_WHITELIST = ["http://localhost:3000"]
-
-# Heroku Stuff
-django_heroku.settings(locals())
-
-
-MEDIA_URL = "/media/"
-
-MEDIA_ROOT = os.path.join(BASE_DIR, "media")
 
 STATICFILES_FINDERS = (
     "django.contrib.staticfiles.finders.FileSystemFinder",
@@ -160,10 +142,40 @@ STATICFILES_FINDERS = (
     "sass_processor.finders.CssFinder",
 )
 
+DEFAULT_AUTO_FIELD = "django.db.models.BigAutoField"
+
+# Debug Toolbar
+
+INTERNAL_IPS = ["127.0.0.1"]
+
+#
+CORS_ORIGIN_WHITELIST = ["http://localhost:3000"]
+
+# Heroku
+django_heroku.settings(locals())
+
+MEDIA_URL = "/media/"
+
+MEDIA_ROOT = os.path.join(BASE_DIR, "media")
+
+
+# SASS
+
 SASS_PROCESSOR_ROOT = os.path.join(BASE_DIR, "static")
 
+# CKEditor
+
 CKEDITOR_UPLOAD_PATH = "uploads/"
-
 CKEDITOR_IMAGE_BACKEND = "pillow"
-
 CKEDITOR_BROWSE_SHOW_DIRS = True
+
+# TODO implement cloud storage only in PROD
+# Storages
+
+#DEFAULT_FILE_STORAGE = "storages.backends.s3boto3.S3Boto3Storage"
+
+# AWS_S3_SESSION_PROFILE
+
+#AWS_ACCESS_KEY_ID = ""
+#AWS_SECRET_ACCESS_KEY = ""
+#AWS_STORAGE_BUCKET_NAME = ""

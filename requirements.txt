@@ -1,6 +1,7 @@
 wheel
 asgiref
 black
+boto3
 django
 django-appconf
 django-compressor
@@ -13,6 +14,7 @@ django-markdownx
 django-redis
 djangorestframework
 django-sass-processor
+django-storages
 gunicorn
 importlib-metadata
 libsass
