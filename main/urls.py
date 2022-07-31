@@ -18,4 +18,5 @@ urlpatterns = [
     path("users/", include("users.urls", namespace="users")),
     path(r"^ckeditor/", include("ckeditor_uploader.urls")),
     path("__debug__/", include(debug_toolbar.urls)),
+    path("__reload__/", include("django_browser_reload.urls")),
 ]

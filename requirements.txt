@@ -4,6 +4,7 @@ black
 boto3
 django
 django-appconf
+django-browser-reload
 django-compressor
 django-cors-headers
 django-ckeditor
