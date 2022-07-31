@@ -1,10 +1,22 @@
-#Tells Docker to use the official python 3 image from dockerhub as a base image
+# For more information, please refer to https://aka.ms/vscode-docker-python
 FROM python:3
-# Sets an environmental variable that ensures output from python is sent straight to the terminal without buffering it first
-ENV PYTHONUNBUFFERED 1
-# Sets the container's working directory to /app
+
+EXPOSE 8000
+
+# Keeps Python from generating .pyc files in the container
+ENV PYTHONDONTWRITEBYTECODE=1
+
+# Turns off buffering for easier container logging
+ENV PYTHONUNBUFFERED=1
+
+# Install pip requirements
+COPY requirements.txt .
+
+RUN python -m pip install -r requirements.txt
+
+
 WORKDIR /app
-# Copies all files from our local project into the container
-ADD . /app
-# runs the pip install command for all packages listed in the requirements.txt file
-RUN pip install -r requirements.txt
+COPY . /app
+
+# During debugging, this entry point will be overridden. For more information, please refer to https://aka.ms/vscode-docker-python-debug
+CMD ["gunicorn", "--bind", "0.0.0.0:8000", "main.wsgi"]
