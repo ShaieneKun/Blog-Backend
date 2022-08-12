@@ -31,3 +31,4 @@ typing-extensions
 uwsgi
 zipp
 pre-commit
+whitenoise
