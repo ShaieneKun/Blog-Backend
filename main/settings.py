@@ -23,7 +23,7 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 SECRET_KEY = "&tbtdr(vt!zcj)s3zdnfkryk1ynrjeneq9!at(ppolr1d$4qt_"
 
 # SECURITY WARNING: don't run with debug turned on in production!
-if os.getenv("DEBUG") == "False":
+if os.getenv("DEBUG") == "false":
     DEBUG = False
 else:
     DEBUG = True
@@ -51,6 +51,7 @@ INSTALLED_APPS = [
     "debug_toolbar",
     "sass_processor",
     "ckeditor",
+    "whitenoise",
 ]
 
 MIDDLEWARE = [
@@ -138,8 +139,12 @@ DEFAULT_AUTO_FIELD = "django.db.models.BigAutoField"
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/3.0/howto/static-files/
 
-STATIC_ROOT = f"{BASE_DIR}/staticfiles"
-STATIC_URL = "static/"
+STATIC_ROOT = os.path.join(BASE_DIR, "staticfiles")
+STATIC_URL = "/static/"
+
+STATICFILES_DIRS = [
+    os.path.join(BASE_DIR, "static"),
+]
 
 STATICFILES_FINDERS = (
     "django.contrib.staticfiles.finders.FileSystemFinder",
@@ -177,9 +182,10 @@ CKEDITOR_BROWSE_SHOW_DIRS = True
 
 if not DEBUG:
     # Storages
+    use_s3_storage = os.getenv("USE_AWS_S3")
+    if use_s3_storage == "true":
+        DEFAULT_FILE_STORAGE = "storages.backends.s3boto3.S3Boto3Storage"
 
-    DEFAULT_FILE_STORAGE = "storages.backends.s3boto3.S3Boto3Storage"
-
-    AWS_ACCESS_KEY_ID = os.environ["AWS_ACCESS_KEY_ID"]
-    AWS_SECRET_ACCESS_KEY = os.environ["AWS_SECRET_ACCESS_KEY"]
-    AWS_STORAGE_BUCKET_NAME = os.environ["AWS_STORAGE_BUCKET_NAME"]
+        AWS_ACCESS_KEY_ID = os.environ["AWS_ACCESS_KEY_ID"]
+        AWS_SECRET_ACCESS_KEY = os.environ["AWS_SECRET_ACCESS_KEY"]
+        AWS_STORAGE_BUCKET_NAME = os.environ["AWS_STORAGE_BUCKET_NAME"]
