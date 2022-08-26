@@ -3,10 +3,12 @@ from django.contrib import admin
 from blog.forms import TagForm
 from blog.models import Article, Tag
 
+
 # Register your models here.
 @admin.register(Article)
 class ArticleAdmin(admin.ModelAdmin):
     filter_horizontal = ("tags",)
+    readonly_fields = ("date_of_creation", "date_of_last_update")
 
 
 @admin.register(Tag)

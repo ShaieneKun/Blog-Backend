@@ -1,8 +1,10 @@
 wheel
 asgiref
 black
-django
+boto3
+django==4.0
 django-appconf
+django-browser-reload
 django-compressor
 django-cors-headers
 django-ckeditor
@@ -13,6 +15,7 @@ django-markdownx
 django-redis
 djangorestframework
 django-sass-processor
+django-storages
 gunicorn
 importlib-metadata
 libsass
@@ -28,3 +31,4 @@ typing-extensions
 uwsgi
 zipp
 pre-commit
+whitenoise

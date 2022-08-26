@@ -1,6 +1,6 @@
 # Blog
 
-Creating a blog with Libano
+Libshai is Libano's and ShaieneKun's blog
 
 To start, create a Virtual Enviroment. The following things must be set up:
 
