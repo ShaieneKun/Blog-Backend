@@ -10,7 +10,7 @@ For the full list of settings and their values, see
 https://docs.djangoproject.com/en/3.0/ref/settings/
 """
 
-import os, django_heroku
+import os
 
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
@@ -163,7 +163,14 @@ INTERNAL_IPS = ["127.0.0.1"]
 CORS_ORIGIN_WHITELIST = ["http://localhost:3000"]
 
 # Heroku
-django_heroku.settings(locals())
+# TODO find permanent fix to
+# https://github.com/heroku/django-heroku/issues/39
+# Currently using this quick fix so build passes
+
+if '/app' in os.environ['HOME']:
+    import django_heroku
+
+    django_heroku.settings(locals())
 
 MEDIA_URL = "/media/"
 
@@ -180,6 +187,7 @@ CKEDITOR_UPLOAD_PATH = "uploads/"
 CKEDITOR_IMAGE_BACKEND = "pillow"
 CKEDITOR_BROWSE_SHOW_DIRS = True
 
+print(f"debug: {DEBUG}")
 if not DEBUG:
     # Storages
     use_s3_storage = os.getenv("USE_AWS_S3")
