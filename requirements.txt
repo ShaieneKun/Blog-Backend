@@ -2,7 +2,7 @@ wheel
 asgiref
 black
 boto3
-django==4.0
+django==3.2
 django-appconf
 django-browser-reload
 django-compressor
