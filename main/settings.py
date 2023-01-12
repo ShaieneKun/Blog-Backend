@@ -46,6 +46,7 @@ INSTALLED_APPS = [
     "users.apps.UsersConfig",
     "django.forms",
     "rest_framework",
+    "rest_framework.authtoken",
     "corsheaders",
     "django_extensions",
     "debug_toolbar",
@@ -187,7 +188,7 @@ CKEDITOR_UPLOAD_PATH = "uploads/"
 CKEDITOR_IMAGE_BACKEND = "pillow"
 CKEDITOR_BROWSE_SHOW_DIRS = True
 
-print(f"debug: {DEBUG}")
+# print(f"debug: {DEBUG}")
 if not DEBUG:
     # Storages
     use_s3_storage = os.getenv("USE_AWS_S3")
@@ -197,3 +198,11 @@ if not DEBUG:
         AWS_ACCESS_KEY_ID = os.environ["AWS_ACCESS_KEY_ID"]
         AWS_SECRET_ACCESS_KEY = os.environ["AWS_SECRET_ACCESS_KEY"]
         AWS_STORAGE_BUCKET_NAME = os.environ["AWS_STORAGE_BUCKET_NAME"]
+
+# API Auth
+
+REST_FRAMEWORK = {
+    'DEFAULT_AUTHENTICATION_CLASSES': [
+        'rest_framework.authentication.TokenAuthentication',
+    ]
+}

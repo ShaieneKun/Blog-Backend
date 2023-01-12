@@ -3,6 +3,7 @@ from django.urls import path, include
 
 # from markdownx import urls as markdownx_urls
 from rest_framework import routers
+from rest_framework.authtoken.views import obtain_auth_token 
 import debug_toolbar
 from blog import views
 
@@ -19,4 +20,5 @@ urlpatterns = [
     path("ckeditor/", include("ckeditor_uploader.urls")),
     path("__debug__/", include(debug_toolbar.urls)),
     path("__reload__/", include("django_browser_reload.urls")),
+    path('api-token-auth/', obtain_auth_token),
 ]
