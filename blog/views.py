@@ -9,6 +9,7 @@ from django.views.generic import (
 )
 from django.contrib.auth.mixins import LoginRequiredMixin
 from rest_framework import viewsets
+from rest_framework.permissions import IsAuthenticated
 
 from .models import Article
 from .forms import ArticleForm
@@ -17,14 +18,14 @@ from .serializers import ArticleSerializer
 # REST Views
 
 
-class ArticleSerializedView(viewsets.ModelViewSet):
+class ArticleSerializedView(viewsets.ReadOnlyModelViewSet):
     serializer_class = ArticleSerializer
     queryset = Article.objects.all()
 
-class ArticleViewSet(viewsets.ModelViewSet):
-    queryset = Article.objects.all()
+class AuthArticleSerializedView(viewsets.ModelViewSet):
     serializer_class = ArticleSerializer
-
+    queryset = Article.objects.all()
+    permission_classes = [IsAuthenticated]
 
 # Class views
 

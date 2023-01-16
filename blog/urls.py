@@ -2,7 +2,8 @@ from django.urls import path, include
 from django.contrib.auth.views import LoginView
 from rest_framework import routers
 from .views import (
-    ArticleViewSet,
+    ArticleSerializedView,
+    AuthArticleSerializedView,
     ArticleListView,
     ArticleDetailView,
     ArticleCreateView,
@@ -13,9 +14,11 @@ from . import views  # Use this for functions
 
 app_name = "blog"
 
-router = routers.DefaultRouter()
+api_auth_router = routers.DefaultRouter()
+api_router = routers.DefaultRouter()
 
-router.register(r"api", ArticleViewSet)
+api_auth_router.register(r"api", AuthArticleSerializedView)
+api_router.register(r"api", ArticleSerializedView)
 
 urlpatterns = [
     path("", ArticleListView.as_view(), name="articles"),
@@ -28,6 +31,7 @@ urlpatterns = [
         LoginView.as_view(template_name="auth/login.html"),
         name="login",
     ),
-    path("", include(router.urls)),
+    path("", include(api_router.urls)),
+    path("auth/", include(api_auth_router.urls)),
     # path('api-auth', include('rest_framework.urls')),
 ]
