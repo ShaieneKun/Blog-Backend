@@ -6,7 +6,7 @@ from django.contrib.auth.models import User
 from blog.models import Article, Tag
 
 
-class ListArticles(TestCase):
+class ListArticlesTestCase(TestCase):
     def get_article_list(self) -> HttpResponse:
         response: HttpResponse = self.client.get("/blog/")
         self.assertIs(response.status_code, 200)

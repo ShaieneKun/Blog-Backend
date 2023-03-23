@@ -31,7 +31,6 @@ urlpatterns = [
         LoginView.as_view(template_name="auth/login.html"),
         name="login",
     ),
-    path("", include(api_router.urls)),
+    path("", include(api_router.urls), name="blog_api"),
     path("auth/", include(api_auth_router.urls)),
-    # path('api-auth', include('rest_framework.urls')),
 ]
